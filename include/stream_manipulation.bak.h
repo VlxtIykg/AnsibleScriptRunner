@@ -1,5 +1,6 @@
 #ifndef ANSI_CODES_H
 #define ANSI_CODES_H
+using namespace std;
 
 #include <string>
 
@@ -21,6 +22,7 @@ enum class AnsiColorFG {
 		BRIGHT_CYAN = 96,
 		BRIGHT_WHITE = 97
 };
+
 enum class AnsiColorBG {
 		BLACK = 40,
 		RED = 41,
@@ -58,14 +60,13 @@ enum class AnsiScreen {
 		CG320x200_256 = 1
 };
 
-enum class AnsiReset {
-	RESET = 0
-};
+// enum class AnsiReset {
+// 		RESET = 0
+// };
 
 std::string printAnsiCode(AnsiColorFG color);
-std::string printAnsiCode(AnsiColorBG color);
+// std::string printAnsiCode(AnsiColorBG color);
 
 std::string resetAnsiCode();
 
 #endif
-
