@@ -1,0 +1,16 @@
+---
+- name: Install Microsoft Teams
+  hosts: your_host_name
+  become: yes
+
+  tasks:
+    - name: Install snapd
+      apt:
+        name: snapd
+        state: present
+
+    - name: Install Microsoft Teams
+      snap:
+        name: teams_for_linux
+        state: present
+        

@@ -13,5 +13,5 @@ std::string printAnsiCode(AnsiColorFG color) {
 std::string resetAnsiCode() {
 		// enum AnsiReset { RESET = 0 };
 		// return "\x1b[" + std::to_string(RESET) + "m";
-		return "No reset"
+		return "No reset";
 }
