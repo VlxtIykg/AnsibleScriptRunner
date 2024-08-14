@@ -1,6 +1,5 @@
 #ifndef ANSI_CODES_H
 #define ANSI_CODES_H
-using namespace std;
 
 #include <string>
 
