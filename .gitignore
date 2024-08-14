@@ -1,0 +1,64 @@
+# CMake build directory
+build/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Compiled object files
+*.o
+*.obj
+
+# IDE-specific files
+.vscode/
+.idea/
+*.sln
+*.vcxproj
+*.xcodeproj
+*.dsw
+*.workspace
+
+# Miscellaneous
+*.log
+*.swp
+
+# C++ specific files
+*.out
+*.app
+*.i
+*.s
+*.dSYM/
+
+# Dependency directories
+bin/
+lib/
+
+# Build artifacts
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+
+# Compiled executables
+*.exe
+*.dll
+
+# IDE-specific files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Build system files
+
+CMakeLists.txt
+cmake/
