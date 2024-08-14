@@ -1,5 +1,5 @@
-#ifndef default
-#define default
+#ifndef console
+#define console
 
 void startMessage();
 void endMessage();
