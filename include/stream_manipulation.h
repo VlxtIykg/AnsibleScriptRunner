@@ -59,12 +59,12 @@ enum class AnsiScreen {
 		CG320x200_256 = 1
 };
 
-// enum class AnsiReset {
-// 		RESET = 0
-// };
+enum class AnsiReset {
+	RESET = 0
+};
 
 std::string printAnsiCode(AnsiColorFG color);
-// std::string printAnsiCode(AnsiColorBG color);
+std::string printAnsiCode(AnsiColorBG color);
 
 std::string resetAnsiCode();
 
