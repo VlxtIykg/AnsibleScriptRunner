@@ -62,6 +62,7 @@ enum class AnsiReset {
 	RESET = 0
 };
 
+std::string customAnsiCode(std::string code, int color);
 std::string printAnsiCode(AnsiColorFG color);
 std::string printAnsiCode(AnsiColorBG color);
 
