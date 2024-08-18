@@ -13,3 +13,7 @@ std::string resetAnsiCode() {
 	enum AnsiReset { RESET = 0 };
 	return "\x1b[" + std::to_string(RESET) + "m";
 }
+
+std::string customAnsiCode(int code) {
+	return "\x1b[38;5;" + std::to_string(code) + "m";
+}
