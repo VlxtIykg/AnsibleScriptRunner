@@ -39,7 +39,6 @@
 		".gleam": "gleam run -m $fileNameWithoutExt"
 	},
 	"code-runner.executorMap": {
-
 		"javascript": "node",
 		"java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
@@ -110,9 +109,14 @@
 	"editor.defaultFormatter": "xaver.clang-format",
 	"editor.renderWhitespace": "all",
 	"editor.wordWrap": "on",
-	"editor.codeActionsOnSave": {
-
-	},
+	"editor.codeActionsOnSave": {},
 	"C_Cpp.formatting": "clangFormat",
-	"C_Cpp.clang_format_fallbackStyle": "LLVM"
+	"C_Cpp.clang_format_fallbackStyle": "LLVM",
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[yaml]": {
+		"editor.defaultFormatter": "redhat.vscode-yaml"
+	},
+	"ansible.python.interpreterPath": "/home/ivene/miniconda3/bin/python"
 }

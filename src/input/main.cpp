@@ -9,9 +9,6 @@ using namespace std;
 
 int main() {
   system("clear");
-  // AnsiColorBG black = AnsiColorBG::BLACK;
-  // std::cout << printAnsiCode(black);
-  // std::cout << printAnsiCode();
   startMessage(); // We start here	
 
   // This function will settle all in the in between meaning there will not be 4

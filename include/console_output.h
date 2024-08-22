@@ -2,11 +2,11 @@
 #define console
 
 #include <string>
-#include <iostream>
 
 void dynamicBox();
 void startMessage();
 void endMessage();
+bool yn();
 void ConsoleOutput(std::string message);
 
 #endif
