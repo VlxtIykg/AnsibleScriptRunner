@@ -11,5 +11,5 @@
 
     - name: Install Microsoft Teams
       community.general.snap:
-        name: teams_for_linux
+        name: teams-for-linux
         state: present
