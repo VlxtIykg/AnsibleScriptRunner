@@ -26,3 +26,9 @@
 
 Example
 sudo chown -R knovel /etc/ansible
+
+
+> [!CAUTION]
+> sudo apt upgrade fails 
+
+Rerun the ansible playbook
