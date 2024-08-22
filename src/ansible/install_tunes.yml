@@ -1,40 +1,31 @@
 ---
-- name: Install Microsoft Intune
-  hosts: test_laptop1
+- name: Installing Microsoft Intune Portal
+  hosts: new_lap
   become: true
-
   tasks:
-    - name: Install Intune package
-      apt:
-        name: intune_installer.deb
+    - name: Install curl
+      ansible.builtin.apt:
+        name: curl
         state: present
-        deb: /path/to/intune_installer.deb
-        - name: Install Intune dependencies
-          apt:
-          name:
-            - curl
-            - gpg
-          state: present
-
-        - name: Import Microsoft GPG key
-          shell: |
-          curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-          install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/
-          rm microsoft.gpg
-          args:
-          executable: /bin/bash
-
-        - name: Add Microsoft Intune repository
-          apt_repository:
-          repo: "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/ubuntu/22.04/prod jammy main"
-          state: present
-          filename: microsoft-ubuntu-jammy-prod.list
-
-        - name: Update apt cache
-          apt:
-          update_cache: yes
-
-        - name: Install Intune portal
-          apt:
-          name: intune-portal
-          state: present
+    - name: Install gpg
+      ansible.builtin.apt:
+        name: gpg
+        state: present
+    - name: Install apt-transport-https
+      ansible.builtin.apt:
+        name: apt-transport-https
+        state: present
+        update_cache: true
+    - name: Add apt signing key
+      ansible.builtin.apt_key:
+        url: "https://packages.microsoft.com/keys/microsoft.asc"
+        state: present
+    - name: Add repository into sources list
+      ansible.builtin.apt_repository:
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/ubuntu/22.04/prod jammy main"
+        state: present
+        filename: microsoft
+    - name: Install microsoft intune portal
+      ansible.builtin.apt:
+        name: "intune-portal"
+        state: present
