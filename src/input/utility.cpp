@@ -50,5 +50,4 @@ std::string pathToAnsible() {
   }
 
   return "";
-  return "";
 }

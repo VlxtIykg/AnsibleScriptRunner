@@ -10,10 +10,15 @@
 #include "move_script.h"
 #include "stream_manipulation.h"
 #include "utility.h"
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
 
 void notebooks() {
   bool changedHost;
-  bool hostAsArgs; // If hostasargs, require -K for sudo password aswell
+  bool hostAsArgs;
   std::string hostnames;
   std::string std_input;
   std::stringstream ss;
@@ -21,7 +26,6 @@ void notebooks() {
   bool intunes;
 
   copyAnsibleScripts();
-
   std::cout << customAnsiCode("", 255);
   ConsoleOutput("Did you change the host in /etc/ansible/hosts?");
   changedHost = yn();
@@ -56,12 +60,11 @@ void notebooks() {
 
 	if (intunes) {
 		if (hostAsArgs) {
-      std::string command =
-          "ansible-playbook -i " + removeSpaces(hostnames) +
-          ", /etc/ansible/playbooks/playbooks/install_tunes.yml";
+      std::string command = "ansible-playbook -i " + removeSpaces(hostnames) +
+                            ", /etc/ansible/playbooks/intunes.yml";
       system(command.c_str());
 		} else {
-      system("ansible-playbook /etc/ansible/playbooks/install_tunes.yml");
-                }
+			system("ansible-playbook -i /etc/ansible/hosts /etc/ansible/playbooks/intunes.yml");
+		}
 	}
 }

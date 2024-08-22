@@ -7,6 +7,13 @@
 			"label": "echo",
 			"type": "shell",
 			"command": "echo Hello"
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: clean",
+			"command": "clean",
+			"problemMatcher": [],
+			"detail": "CMake template clean task"
 		}
 	]
 }
