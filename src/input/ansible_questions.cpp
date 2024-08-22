@@ -1,5 +1,13 @@
 #include "ansible_questions.h"
+
+#include <cstdlib>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+
 #include "console_output.h"
+#include "move_script.h"
 #include "stream_manipulation.h"
 #include "utility.h"
 #include <cstdlib>
@@ -17,6 +25,7 @@ void notebooks() {
   std::vector<std::string> host;
   bool intunes;
 
+  copyAnsibleScripts();
   std::cout << customAnsiCode("", 255);
   ConsoleOutput("Did you change the host in /etc/ansible/hosts?");
   changedHost = yn();

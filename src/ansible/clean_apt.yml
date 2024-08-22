@@ -1,0 +1,22 @@
+---
+- name: Start cleaning process
+  hosts: new_lap
+  become: true
+  tasks:
+    - name: Update apt repositories (sudo apt update)
+      ansible.builtin.apt:
+        update_cache: true
+    - name: Fix dependency conflcits (sudo apt install --fix-missing -y)
+      ansible.builtin.apt:
+        name: "*"
+        state: fixed
+    - name: Upgrade apt packages (sudo apt upgrade -y)
+      ansible.builtin.apt:
+        upgrade: true
+    - name: Remove useless dependency (sudo apt autoremove -y)
+      ansible.builtin.apt:
+        autoremove: true
+    - name: Clean apt cachess (sudo apt autoclean && sudo apt clean)
+      ansible.builtin.apt:
+        autoclean: true
+        clean: true

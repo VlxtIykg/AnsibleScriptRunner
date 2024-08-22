@@ -1,38 +1,25 @@
 ---
 - name: Install Microsoft Edge
-  hosts: all
+  hosts: new_lap
   become: true
 
   tasks:
-    - name: Download Microsoft GPG key
-      shell: curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-      args:
-        chdir: /tmp
-
-    - name: Copy Microsoft GPG key to trusted location
-      copy:
-        src: /tmp/microsoft.gpg
-        dest: /etc/apt/trusted.gpg.d/microsoft.gpg
-        owner: root
-        group: root
-        mode: '0644'
-
-    - name: Add Microsoft Edge repository
-      lineinfile:
-        path: /etc/apt/sources.list.d/microsoft-edge-dev.list
-        line: 'deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main'
-        create: yes
-
-    - name: Remove temporary GPG key file
-      file:
-        path: /tmp/microsoft.gpg
-        state: absent
-
-    - name: Update apt cache
-      apt:
-        update_cache: yes
-
-    - name: Install Microsoft Edge
-      apt:
-        name: microsoft-edge-stable
+    - name: Install apt-transport-https
+      ansible.builtin.apt:
+        name: apt-transport-https
+        state: present
+        update_cache: true
+    - name: Add apt signing key
+      ansible.builtin.apt_key:
+        url: "https://packages.microsoft.com/keys/microsoft.asc"
+        state: present
+    - name: Add repository into sources list
+      ansible.builtin.apt_repository:
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main
+        state: present
+        filename: microsoft-edge
+    - name: Install microsoft-edge-stable
+      ansible.builtin.apt:
+        name: "microsoft-edge-stable"
+        update_cache: true
         state: present

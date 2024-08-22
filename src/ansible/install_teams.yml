@@ -1,16 +1,15 @@
 ---
 - name: Install Microsoft Teams
-  hosts: your_host_name
-  become: yes
+  hosts: new_lap
+  become: true
 
   tasks:
     - name: Install snapd
-      apt:
+      ansible.builtin.apt:
         name: snapd
         state: present
 
     - name: Install Microsoft Teams
-      snap:
+      community.general.snap:
         name: teams_for_linux
         state: present
-        
